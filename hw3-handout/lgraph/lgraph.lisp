@@ -1,16 +1,13 @@
-;; helper: get the label part of an edge like (a 0)
+
 (defun edge-label (edge)
     (car edge)
 )
 
-;; helper: get the next-node part of an edge like (a 0)
 (defun edge-node (edge)
     (car (cdr edge))
 )
 
-;; helper: check whether node exists in graph g.
-;; In the handout, a node with no outgoing edges may return (nil),
-;; while a node not in the graph returns nil.
+
 (defun node-exists (g node)
     (if (null (funcall g node)) nil t)
 )
@@ -32,8 +29,7 @@
     )
 )
 
-;; From one graph node's edge list, collect all next nodes reachable
-;; by an edge whose label equals lab.
+
 (defun next-nodes-from-edges (lab edges)
     (cond
         ((null edges) nil)
@@ -45,8 +41,7 @@
     )
 )
 
-;; Given a list of possible current nodes in graph g, follow one label lab
-;; and return all possible next nodes.
+
 (defun next-nodes (g lab nodes)
     (cond
         ((null nodes) nil)
@@ -55,7 +50,7 @@
     )
 )
 
-;; Try every outgoing edge in g1 from the current node.
+
 (defun find-sequence-from-edges (edges g1 g2 target k g2nodes)
     (cond
         ((null edges) nil)
@@ -74,9 +69,7 @@
     )
 )
 
-;; Main recursive search.
-;; g2nodes means: after following the labels chosen so far,
-;; these are all possible current nodes in g2.
+
 (defun find-sequence-helper (g1 g2 current target k g2nodes)
     (cond
         ((zerop k)
